@@ -11,10 +11,10 @@ from tweepy.streaming import StreamListener
 import datetime
 import json, time
 # set your keys to access tweets 
-consumer_key = '7IKU6Hu1SfGPpyelNdJQOsMFc'
-consumer_secret = 'rIibmcfcKxP6Z1o1owJz7kNc07R8odwlXqQZLi6twL7o6A0tMg'
-access_token = '910751477613912064-5RlHjVTdAkAydsBfQeMDR7fGRWMMP65'
-access_secret = 'KD2sFx2dGgTaeTrvoPYLVLcmPCiD9Py9O19XenU0SDx0g'
+consumer_key = 'zUuyMTkXox4DobpKChBt5cJfB'
+consumer_secret = 'r5bKzPIhxKLwgfwFB9jgfAYBpmOKVTn6JAHgpTkqj3Gp17qLCx'
+access_token = '831333910084726785-R0qh3YCVAz3k8KhcX3ElYd2FfKlVH6s'
+access_secret = 'HhPH1pjoA0tWqiWnW6LTU6A9671Xkjeis8fGVW10NnwQr'
  
 auth = OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_secret)
