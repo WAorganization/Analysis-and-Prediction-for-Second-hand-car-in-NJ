@@ -69,14 +69,14 @@ class MyListener(StreamListener):
     
 def get_tweets():
     brand_name = Toyota
-	out_text = brand_name + ".txt"
-	out_json = brand_name + ".json"
+    out_text = brand_name + ".txt"
+    out_json = brand_name + ".json"
     tweet_listener=MyListener(output_file=out_text,time_limit=60)
     
     # start a staeam instance using authentication and the listener
     twitter_stream = Stream(auth, tweet_listener)
     # filtering tweets by topics
-    twitter_stream.filter(track=['#BMW', '#bmw'])
+    twitter_stream.filter(track=['#Toyota', '#toyota'])
     time.sleep(0.5)
     
     tweets=[]
