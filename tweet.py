@@ -68,7 +68,7 @@ class MyListener(StreamListener):
         return True
     
 def get_tweets():
-    brand_name = Toyota
+    brand_name = "Toyota"
     out_text = brand_name + ".txt"
     out_json = brand_name + ".json"
     tweet_listener=MyListener(output_file=out_text,time_limit=60)
