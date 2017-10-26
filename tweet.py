@@ -4,7 +4,6 @@ Created on Tue Oct 10 17:09:21 2017
 
 @author: zmx
 """
-import tweepy
 from tweepy import OAuthHandler
 from tweepy import Stream
 from tweepy.streaming import StreamListener
@@ -71,7 +70,7 @@ def get_tweets():
     brand_name = "Toyota"
     out_text = brand_name + ".txt"
     out_json = brand_name + ".json"
-    tweet_listener=MyListener(output_file=out_text,time_limit=60)
+    tweet_listener=MyListener(output_file=out_text,time_limit=60) # we scrape every brand we need for 60 minutes
     
     # start a staeam instance using authentication and the listener
     twitter_stream = Stream(auth, tweet_listener)
@@ -86,7 +85,7 @@ def get_tweets():
             tweet = json.loads(line)               
             tweets.append(tweet)
     # write the whole list back to JSON
-    json.dump(tweets, open(out_json,'w'), indent = 4)
+    json.dump(tweets, open(out_json,'w'), indent=4) # use indent=4 to make the json file more readable
     
     # to load the whole list
     # pay attention to json.load and json.loads
@@ -100,5 +99,5 @@ def get_tweets():
     return all_tweets
 
 if __name__ == "__main__":
-    b=get_tweets()        
-    print b
+    content=get_tweets()        
+    print content
