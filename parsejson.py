@@ -24,7 +24,8 @@ def parsejson(filename):
         wr.writerow(result)
 
 if __name__ == "__main__":
-    filenames = ["BMW", "Ford", "Honda", "Lexus", "Mazda", "Toyota", "audi", "chevrolet"]
+#    filenames = ["BMW", "Ford", "Honda", "Lexus", "Mazda", "Toyota", "audi", "chevrolet", "Jeep", "Mercedes-Benz"]
+    filenames = ["Dodge", "Nissan"]    
     for filename in filenames:
         parsejson(filename)
 

@@ -12,9 +12,6 @@ def cleanfile(inf):
             prices.append(row[1])
             mileages.append(row[5])
     
-    status=[]
-    years=[]
-    brands=[]
     rows=[]
     for i in range(len(titles)):
         temp_list=titles[i].strip().split(" ")
@@ -49,6 +46,9 @@ def cleanspace(inputfile):
         csv.writer(out).writerows(valid_rows)
         
 if __name__ == "__main__":
-    inputfile = 'suv_csv'
-    t = cleanfile(inputfile)
-    cleanspace(t)
+    clean_list = ["njauto_Acura", "njauto_Audi", "njauto_BMW", "njauto_Chevrolet","njauto_Dodge", "njauto_Benz", \
+                  "njauto_Ford", "njauto_Honda", "njauto_Lexus", "njauto_Jeep", "njauto_Mazda", "njauto_Nissan", "njauto_Toyota"]
+    for i in clean_list:
+        temp = cleanfile(i)
+        cleanspace(temp)
+

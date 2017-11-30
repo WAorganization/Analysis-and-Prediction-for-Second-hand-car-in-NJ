@@ -67,7 +67,7 @@ class MyListener(StreamListener):
         return True
     
 def get_tweets():
-    brand_name = "Toyota"
+    brand_name = "Nissan"
     out_text = brand_name + ".txt"
     out_json = brand_name + ".json"
     tweet_listener=MyListener(output_file=out_text,time_limit=60) # we scrape every brand we need for 60 minutes
@@ -75,8 +75,8 @@ def get_tweets():
     # start a staeam instance using authentication and the listener
     twitter_stream = Stream(auth, tweet_listener)
     # filtering tweets by topics
-    twitter_stream.filter(track=['#Toyota', '#toyota'])
-    time.sleep(0.5)
+    twitter_stream.filter(track=['#Nissan', '#nissan'])
+    time.sleep(0.5) #use sleep to limit the scrape rate
     
     tweets=[]
     with open(out_text, 'r') as f:
