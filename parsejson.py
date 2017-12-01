@@ -17,16 +17,16 @@ def parsejson(filename):
     result = []
     for i in range(len(t)):
 #        print(t[i]['text'])
-        result.append(parse(t[i]['text']))
-    result.append(len(t))
+        result.append(parse(t[i]['text']).replace("RT", "").replace("&amp", ""))
     with open(ouf,'wb') as resultFile:
         wr = csv.writer(resultFile)     
         wr.writerow(result)
 
 if __name__ == "__main__":
-#    filenames = ["BMW", "Ford", "Honda", "Lexus", "Mazda", "Toyota", "audi", "chevrolet", "Jeep", "Mercedes-Benz"]
-    filenames = ["Dodge", "Nissan"]    
+    filenames = ["BMW", "Ford", "Honda", "Lexus", "Mazda", "Toyota", "Audi", \
+                 "Chevrolet", "Jeep", "Mercedes-Benz", "Nissan", "Dodge"] 
     for filename in filenames:
         parsejson(filename)
+
 
     
