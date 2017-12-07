@@ -17,8 +17,8 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.linear_model import LinearRegression
 
-def normalize(x):
-    normalized_res=(x-x.min())/(x.max()-x.min())*2010
+def normalize(x, coefficient):
+    normalized_res=(x-x.min())/(x.max()-x.min())*coefficient
     normalized_res = normalized_res.astype("int")
     return normalized_res
 
@@ -38,9 +38,9 @@ def clean_data(data):
                 models.append(index)
     data['model']=models
 #    data['year']=normalize(data['year'])
-    data['mileage']=normalize(data['mileage'])
-    data['model']=normalize(data['model'])
-    data['D_rate']=normalize(data['D_rate'])
+    data['mileage']=normalize(data['mileage'],2010)
+    data['model']=normalize(data['model'],2000)
+    data['D_rate']=normalize(data['D_rate'],2000)
     return data
 
 def train_and_predict(train, test, param_list):
@@ -68,7 +68,6 @@ def train_and_predict(train, test, param_list):
     model_list.append(LG_pre)
     model_list.append(LR_pre)
 
-
     for obj in model_list:
         result=[]
         obj.fit(train[param_list], train['D_rate'])
@@ -84,7 +83,7 @@ if __name__ == "__main__":
     data=pd.read_csv(name+".csv")
     data = data[pd.notnull(data['D_rate'])]
     cleaned_data=clean_data(data)
-    cleaned_data['PC']=normalize(cleaned_data['PC'])
+    cleaned_data['PC']=normalize(cleaned_data['PC'], 2250)
     train, test = train_test_split(cleaned_data, test_size=0.3)
     print("The result of full model:")
     param_list1=["mileage","year","model","PC"]            
