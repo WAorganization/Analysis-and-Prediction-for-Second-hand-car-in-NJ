@@ -30,7 +30,7 @@ def clean_data(data):
     for i in data['model']:
         if i not in model_dict.values():
             model_dict[model_idx]=i
-            model_idx=model_idx+1
+            model_idx+=1
     
     for s in data['model']:
         for index, model_name in model_dict.iteritems():
